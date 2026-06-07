@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaxChain Crypto — Institutional Crypto Tax Engine</title>
+  <meta name="description" content="The crypto tax API built for accountancy firms. HMRC SA108 and IRS Form 8949. Section 104 pooling. £10 per generated report. No client caps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:        #0a0e1a;
+      --ink-2:      #141929;
+      --ink-3:      #1e2540;
+      --rule:       #1e2d4a;
+      --rule-light: #2a3d60;
+      --slate:      #4a5a7a;
+      --mist:       #8a9bbf;
+      --cloud:      #c8d4e8;
+      --paper:      #f0f4fa;
+      --white:      #ffffff;
+      --gold:       #c8a84b;
+      --gold-dim:   rgba(200,168,75,0.12);
+      --gold-glow:  rgba(200,168,75,0.08);
+      --blue:       #2563eb;
+      --blue-dim:   rgba(37,99,235,0.1);
+      --green:      #10b981;
+      --red:        #ef4444;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--ink);
+      color: var(--cloud);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TYPOGRAPHY ── */
+    .serif { font-family: 'Instrument Serif', Georgia, serif; }
+    .mono  { font-family: 'Geist Mono', monospace; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--rule-light); }
+    ::selection { background: var(--gold-dim); color: var(--white); }
+
+    /* ── GRID BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,14,26,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-mark {
+      width: 28px; height: 28px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .logo-mark::before {
+      content: '';
+      width: 10px; height: 10px;
+      background: var(--gold);
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+    .logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .logo-text span { color: var(--gold); }
+    nav { display: flex; align-items: center; gap: 4px; }
+    nav a {
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--mist);
+      transition: color 0.15s;
+      letter-spacing: 0.02em;
+    }
+    nav a:hover { color: var(--white); }
+    .nav-cta {
+      margin-left: 12px;
+      padding: 8px 20px;
+      background: var(--gold);
+      color: var(--ink) !important;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      transition: opacity 0.15s !important;
+    }
+    .nav-cta:hover { opacity: 0.88 !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px 80px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      padding: 6px 14px;
+      border: 1px solid rgba(200,168,75,0.3);
+      background: var(--gold-glow);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .hero-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(48px, 6vw, 84px);
+      line-height: 1.05;
+      color: var(--white);
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--mist);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border: 1px solid var(--rule-light);
+      color: var(--cloud);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      transition: border-color 0.15s, color 0.15s, transform 0.1s;
+    }
+    .btn-ghost:hover { border-color: var(--mist); color: var(--white); transform: translateY(-1px); }
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 56px;
+      border-top: 1px solid var(--rule);
+      padding-top: 32px;
+    }
+    .hero-stat {
+      flex: 1;
+      padding-right: 32px;
+      border-right: 1px solid var(--rule);
+    }
+    .hero-stat:last-child { border-right: none; padding-right: 0; padding-left: 32px; }
+    .hero-stat:not(:first-child):not(:last-child) { padding-left: 32px; }
+    .stat-number {
+      font-family: 'Instrument Serif', serif;
+      font-size: 36px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-number span { color: var(--gold); }
+    .stat-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { position: relative; z-index: 1; }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .section-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 0; }
+
+    /* ── CAPABILITIES ── */
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-top: 56px;
+    }
+    .cap-card {
+      background: var(--ink-2);
+      padding: 36px;
+      transition: background 0.2s;
+    }
+    .cap-card:hover { background: var(--ink-3); }
+    .cap-card.featured {
+      grid-column: span 2;
+      background: var(--ink-3);
+      border-bottom: 1px solid var(--rule);
+    }
+    .cap-number {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--slate);
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .cap-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .cap-desc {
+      font-size: 14px;
+      color: var(--mist);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+    .cap-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .cap-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--rule-light);
+      color: var(--slate);
+    }
+    .cap-tag.gold {
+      border-color: rgba(200,168,75,0.4);
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    /* ── DEMO TERMINAL ── */
+    .demo-section { background: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .demo-intro .section-title { margin-bottom: 20px; }
+    .demo-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .demo-point:last-child { border-bottom: none; }
+    .demo-point-num {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      padding-top: 2px;
+      min-width: 24px;
+    }
+    .demo-point-text { font-size: 14px; color: var(--mist); line-height: 1.6; }
+    .demo-point-text strong { color: var(--cloud); font-weight: 500; }
+    .terminal {
+      background: #070b14;
+      border: 1px solid var(--rule-light);
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      overflow: hidden;
+    }
+    .terminal-bar {
+      background: var(--ink-3);
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .terminal-dots { display: flex; gap: 6px; }
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-dot:nth-child(1) { background: #ff5f57; }
+    .terminal-dot:nth-child(2) { background: #febc2e; }
+    .terminal-dot:nth-child(3) { background: #28c840; }
+    .terminal-label { font-size: 11px; color: var(--slate); letter-spacing: 0.06em; }
+    .terminal-body { padding: 20px; max-height: 460px; overflow-y: auto; }
+    .t-comment { color: var(--slate); }
+    .t-key { color: #7dd3fc; }
+    .t-str { color: #86efac; }
+    .t-num { color: #fbbf24; }
+    .t-bool { color: #f472b6; }
+    .t-section { color: var(--gold); margin-top: 8px; }
+    .t-prompt { color: var(--gold); }
+    .t-result { color: var(--green); }
+    .t-warning { color: #fb923c; }
+    .terminal-input {
+      border-top: 1px solid var(--rule);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .terminal-input input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      color: var(--cloud);
+    }
+    .terminal-input input::placeholder { color: var(--slate); }
+    .terminal-run {
+      padding: 6px 14px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .terminal-run:hover { opacity: 0.85; }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-top: 56px;
+    }
+    .price-card {
+      background: var(--ink-2);
+      padding: 40px 36px;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .price-card:hover { background: var(--ink-3); }
+    .price-card.featured {
+      background: var(--ink-3);
+      outline: 1px solid var(--gold);
+      outline-offset: -1px;
+      z-index: 1;
+    }
+    .price-badge {
+      position: absolute;
+      top: -1px; right: 28px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+    .price-tier {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 24px;
+    }
+    .price-amount {
+      font-family: 'Instrument Serif', serif;
+      font-size: 52px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-amount sup {
+      font-size: 24px;
+      vertical-align: super;
+      color: var(--gold);
+    }
+    .price-unit {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      color: var(--slate);
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .price-features { list-style: none; margin-bottom: 32px; }
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--mist);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(30,45,64,0.5);
+      line-height: 1.5;
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before {
+      content: '→';
+      color: var(--gold);
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      padding-top: 1px;
+      flex-shrink: 0;
+    }
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border: 1px solid var(--rule-light);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--cloud);
+      transition: all 0.15s;
+    }
+    .price-cta:hover { border-color: var(--gold); color: var(--gold); }
+    .price-card.featured .price-cta {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+    }
+    .price-card.featured .price-cta:hover { opacity: 0.88; }
+    .pricing-note {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(200,168,75,0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .pricing-note-icon {
+      font-family: 'Geist Mono', monospace;
+      font-size: 14px;
+      color: var(--gold);
+      padding-top: 1px;
+    }
+    .pricing-note-text {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.6;
+    }
+    .pricing-note-text strong { color: var(--cloud); }
+
+    /* ── JURISDICTION TABLE ── */
+    .juris-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-top: 48px;
+    }
+    .juris-card {
+      background: var(--ink-2);
+      padding: 36px;
+    }
+    .juris-flag {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .juris-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .juris-sub {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .juris-rules { list-style: none; }
+    .juris-rules li {
+      font-size: 13px;
+      color: var(--mist);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(30,45,64,0.6);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .juris-rules li:last-child { border-bottom: none; }
+    .juris-rules li::before {
+      content: '✓';
+      color: var(--green);
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+    }
+
+    /* ── INTEGRATION ── */
+    .integration-section { background: var(--ink-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .integration-code {
+      background: #070b14;
+      border: 1px solid var(--rule-light);
+      padding: 28px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      line-height: 2;
+      margin-top: 40px;
+      overflow-x: auto;
+    }
+    .c-comment { color: var(--slate); }
+    .c-keyword { color: #c084fc; }
+    .c-fn { color: #60a5fa; }
+    .c-str { color: #86efac; }
+    .c-num { color: #fbbf24; }
+    .c-param { color: #f0abfc; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      background: var(--ink-2);
+      position: relative;
+      z-index: 1;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 40px 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-top: 12px;
+      max-width: 260px;
+    }
+    .footer-col h5 {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 13px;
+      color: var(--mist);
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-legal {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--slate);
+      letter-spacing: 0.04em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--slate);
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--mist); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .header-inner { padding: 0 20px; }
+      nav { display: none; }
+      .hero { padding: 60px 20px; }
+      .hero-stats { flex-direction: column; gap: 24px; }
+      .hero-stat { border-right: none; border-bottom: 1px solid var(--rule); padding: 0 0 24px; }
+      .hero-stat:last-child { border-bottom: none; padding-left: 0; }
+      .hero-stat:not(:first-child) { padding-left: 0; }
+      .section-inner { padding: 60px 20px; }
+      .capabilities-grid { grid-template-columns: 1fr; }
+      .cap-card.featured { grid-column: span 1; }
+      .demo-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .juris-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div class="logo-text">TaxChain<span>Crypto</span></div>
+      </div>
+      <nav>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#jurisdictions">Jurisdictions</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#integration">Integration</a>
+        <a href="#pricing" class="nav-cta">Get API Key</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow fade-up">Institutional Crypto Tax Infrastructure</div>
+    <h1 class="hero-title fade-up delay-1">
+      The tax engine<br>your clients <em>deserve.</em>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      HMRC SA108 and IRS Form 8949 reports from any wallet address. Section 104 pooling, bed-and-breakfasting rules, DeFi-aware cost basis. Built for accountancy firms — £10 per generated report, no client caps.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#demo" class="btn-primary">Try the Engine →</a>
+      <a href="#pricing" class="btn-ghost">View Pricing</a>
+    </div>
+    <div class="hero-stats fade-up delay-4">
+      <div class="hero-stat">
+        <div class="stat-number"><span>£10</span></div>
+        <div class="stat-label">Per generated report</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Jurisdictions — UK & USA</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">No client caps ever</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-number"><span>4</span></div>
+        <div class="stat-label">Cost basis methods</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <div class="section-inner">
+      <div class="section-label">What's Inside</div>
+      <h2 class="section-title">Built deeper than<br><em>anything else available.</em></h2>
+      <p style="font-size:15px; color:var(--mist); max-width:540px; line-height:1.7;">Every calculation your clients need. Every rule HMRC and the IRS require. Nothing missing.</p>
+
+      <div class="capabilities-grid">
+        <div class="cap-card featured">
+          <div class="cap-number">01 — CORE ENGINE</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+            <div>
+              <div class="cap-title">HMRC Section 104 Pooling</div>
+              <div class="cap-desc">The exact pooling method HMRC requires for UK crypto disposals. Average cost basis tracked across the entire holding period. Same-day and 30-day bed-and-breakfasting rules applied automatically before pooling.</div>
+              <div class="cap-tags">
+                <span class="cap-tag gold">HMRC Compliant</span>
+                <span class="cap-tag">SA108 Ready</span>
+                <span class="cap-tag">Section 104</span>
+              </div>
+            </div>
+            <div>
+              <div class="cap-title">IRS FIFO / HIFO / LIFO</div>
+              <div class="cap-desc">Full lot-level tracking for US clients. Precise partial lot consumption. Long-term vs short-term holding period calculated per disposal. Form 8949 and Schedule D output. Short-term 37%, long-term 15% rates applied correctly.</div>
+              <div class="cap-tags">
+                <span class="cap-tag gold">IRS Compliant</span>
+                <span class="cap-tag">Form 8949</span>
+                <span class="cap-tag">Schedule D</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-number">02 — PRICE DATA</div>
+          <div class="cap-title">Historical Price at Disposal Date</div>
+          <div class="cap-desc">CoinGecko historical prices fetched at the exact timestamp of every disposal — what HMRC requires for accurate GBP valuation. 24-hour caching prevents rate limiting. Full audit trail noting price source per transaction.</div>
+          <div class="cap-tags">
+            <span class="cap-tag gold">Audit Trail</span>
+            <span class="cap-tag">CoinGecko</span>
+            <span class="cap-tag">GBP Valuation</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-number">03 — TAX INTELLIGENCE</div>
+          <div class="cap-title">Tax Loss Harvesting Engine</div>
+          <div class="cap-desc">Automatically identifies unrealised losses in remaining holdings that could offset gains before year-end. Shows exact potential tax saving per lot. The feature that makes clients come back every quarter, not just in January.</div>
+          <div class="cap-tags">
+            <span class="cap-tag gold">Unique Feature</span>
+            <span class="cap-tag">Loss Harvesting</span>
+            <span class="cap-tag">Year-End Planning</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-number">04 — SELL PREVIEW</div>
+          <div class="cap-title">"What if I sell today?" Preview</div>
+          <div class="cap-desc">Real-time calculation of the exact tax liability if a client sold their entire holding at the current market price. Net after tax shown immediately. A conversation-changing tool for client meetings — no competitor offers this as an API endpoint.</div>
+          <div class="cap-tags">
+            <span class="cap-tag gold">Exclusive</span>
+            <span class="cap-tag">Real-Time</span>
+            <span class="cap-tag">Client Meetings</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-number">05 — TAX YEAR LOGIC</div>
+          <div class="cap-title">Automatic Jurisdiction Routing</div>
+          <div class="cap-desc">UK tax year runs April 6th to April 5th. US runs January 1st to December 31st. The engine detects the current tax year per jurisdiction automatically. One API call, correct rules applied, correct period filtered.</div>
+          <div class="cap-tags">
+            <span class="cap-tag">Auto-Detection</span>
+            <span class="cap-tag">Multi-Year</span>
+            <span class="cap-tag">Period Filtering</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-number">06 — UNREALISED P&L</div>
+          <div class="cap-title">Unrealised Gains & Losses</div>
+          <div class="cap-desc">Full mark-to-market on remaining holdings at current price. Unrealised gains and losses broken out separately. Remaining BTC holdings tracked to satoshi precision. Everything an accountant needs for a complete client picture.</div>
+          <div class="cap-tags">
+            <span class="cap-tag">Mark-to-Market</span>
+            <span class="cap-tag">Portfolio View</span>
+            <span class="cap-tag">Satoshi Precision</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- JURISDICTIONS -->
+  <section id="jurisdictions">
+    <div class="section-inner">
+      <div class="section-label">Coverage</div>
+      <h2 class="section-title">Two jurisdictions.<br><em>Every rule. Correctly.</em></h2>
+
+      <div class="juris-grid">
+        <div class="juris-card">
+          <span class="juris-flag">🇬🇧</span>
+          <div class="juris-name">United Kingdom</div>
+          <div class="juris-sub">HMRC Compliant · Tax Year April 6 → April 5</div>
+          <ul class="juris-rules">
+            <li>Section 104 share pooling — average cost basis</li>
+            <li>Same-day matching rule applied first</li>
+            <li>30-day bed-and-breakfasting rule applied second</li>
+            <li>£3,000 CGT annual exempt amount deducted</li>
+            <li>18% basic rate / 24% higher rate applied</li>
+            <li>SA108 Capital Gains Summary output</li>
+            <li>GBP valuation at exact disposal date</li>
+            <li>Staking, mining, airdrops classified as income</li>
+          </ul>
+        </div>
+        <div class="juris-card">
+          <span class="juris-flag">🇺🇸</span>
+          <div class="juris-name">United States</div>
+          <div class="juris-sub">IRS Compliant · Tax Year January 1 → December 31</div>
+          <ul class="juris-rules">
+            <li>FIFO, HIFO, LIFO — all three methods available</li>
+            <li>Lot-level tracking with partial lot consumption</li>
+            <li>Holding period calculated per disposal to the day</li>
+            <li>Long-term rate 15% (held over 365 days)</li>
+            <li>Short-term rate 37% (held under 365 days)</li>
+            <li>IRS Form 8949 output — each disposal itemised</li>
+            <li>Schedule D totals — short and long-term separated</li>
+            <li>USD valuation at exact disposal timestamp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- DEMO -->
+  <section id="demo" class="demo-section">
+    <div class="section-inner">
+      <div class="demo-grid">
+        <div class="demo-intro">
+          <div class="section-label">Live Engine</div>
+          <h2 class="section-title">Run a real<br><em>tax report.</em></h2>
+          <div class="demo-point">
+            <div class="demo-point-num">01</div>
+            <div class="demo-point-text"><strong>Paste any BTC wallet address.</strong> The engine fetches the complete transaction history from the blockchain — no CSV upload, no manual data entry.</div>
+          </div>
+          <div class="demo-point">
+            <div class="demo-point-num">02</div>
+            <div class="demo-point-text"><strong>Historical prices fetched automatically.</strong> CoinGecko provides the exact GBP/USD price at each disposal date — what HMRC and the IRS both require.</div>
+          </div>
+          <div class="demo-point">
+            <div class="demo-point-num">03</div>
+            <div class="demo-point-text"><strong>Full report returned in seconds.</strong> Net gain, estimated tax, CGT allowance remaining, unrealised position, tax loss harvesting opportunities. Everything.</div>
+          </div>
+          <div class="demo-point">
+            <div class="demo-point-num">04</div>
+            <div class="demo-point-text"><strong>Retrieve the same report free.</strong> You only pay £10 when you generate. Re-downloading a stored report is always free. Fair.</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <div class="terminal-dots">
+                <div class="terminal-dot"></div>
+                <div class="terminal-dot"></div>
+                <div class="terminal-dot"></div>
+              </div>
+              <div class="terminal-label">TAXCHAIN ENGINE — LIVE DEMO</div>
+              <div style="font-size:10px; color:var(--slate); font-family:'Geist Mono',monospace;">v2.4.1</div>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+              <div class="t-comment">// TaxChain Crypto — Institutional Tax Engine</div>
+              <div class="t-comment">// Enter a BTC wallet address below to run a live report</div>
+              <br>
+              <div><span class="t-prompt">$</span> <span style="color:var(--cloud);">Awaiting wallet address...</span></div>
+            </div>
+            <div class="terminal-input">
+              <span class="t-prompt">$</span>
+              <input type="text" id="demo-input" placeholder="bc1q... or 1A1z... or 3J98..." />
+              <select id="demo-jurisdiction" style="background:var(--ink-3);border:1px solid var(--rule-light);color:var(--cloud);font-family:'Geist Mono',monospace;font-size:11px;padding:5px 8px;outline:none;">
+                <option value="uk">UK</option>
+                <option value="us">US</option>
+              </select>
+              <button class="terminal-run" onclick="runDemo()">RUN →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-inner">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Pay per report.<br><em>Never per client.</em></h2>
+      <p style="font-size:15px; color:var(--mist); max-width:540px; line-height:1.7; margin-bottom:0;">No monthly minimums. No client caps. No upgrade panic mid-January. You pay £10 when you generate a report. That's it.</p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-tier">Starter</div>
+          <div class="price-amount"><sup>£</sup>99</div>
+          <div class="price-unit">includes 15 reports · £10 each after</div>
+          <ul class="price-features">
+            <li>15 report credits included</li>
+            <li>UK HMRC SA108 output</li>
+            <li>US IRS Form 8949 output</li>
+            <li>Tax loss harvesting analysis</li>
+            <li>Sell-today preview endpoint</li>
+            <li>Stored reports — free re-download</li>
+            <li>Email support</li>
+          </ul>
+          <a href="mailto:support@taxchaincrypto.com" class="price-cta">Get Started</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-tier">Practice</div>
+          <div class="price-amount"><sup>£</sup>299</div>
+          <div class="price-unit">includes 50 reports · £8 each after</div>
+          <ul class="price-features">
+            <li>50 report credits included</li>
+            <li>UK HMRC SA108 output</li>
+            <li>US IRS Form 8949 output</li>
+            <li>Tax loss harvesting analysis</li>
+            <li>Sell-today preview endpoint</li>
+            <li>Stored reports — free re-download</li>
+            <li>White-label PDF output +£49/mo</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="mailto:support@taxchaincrypto.com" class="price-cta">Get Started</a>
+        </div>
+
+        <div class="price-card">
+          <div class="price-tier">Enterprise</div>
+          <div class="price-amount"><sup>£</sup>599</div>
+          <div class="price-unit">includes 150 reports · £6 each after</div>
+          <ul class="price-features">
+            <li>150 report credits included</li>
+            <li>UK HMRC SA108 output</li>
+            <li>US IRS Form 8949 output</li>
+            <li>Tax loss harvesting analysis</li>
+            <li>Sell-today preview endpoint</li>
+            <li>Stored reports — free re-download</li>
+            <li>White-label PDF output included</li>
+            <li>Dedicated account manager</li>
+            <li>Custom volume pricing available</li>
+          </ul>
+          <a href="mailto:support@taxchaincrypto.com" class="price-cta">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        <div class="pricing-note-icon">→</div>
+        <div class="pricing-note-text">
+          <strong>The maths for your firm:</strong> An accountancy firm billing clients £800–£2,000 for crypto tax work pays £10 per report. 50 clients generates £40,000–£100,000 in fees for a £500 tool cost. That's a 80–200× return on your TaxChain spend. The white-label add-on means your clients never see our name — only yours.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- INTEGRATION -->
+  <section id="integration" class="integration-section">
+    <div class="section-inner">
+      <div class="section-label">Integration</div>
+      <h2 class="section-title">One endpoint.<br><em>Complete report.</em></h2>
+      <p style="font-size:15px; color:var(--mist); max-width:540px; line-height:1.7;">REST API. Any language. A wallet address goes in, a complete tax report comes out. No SDK required.</p>
+
+      <div class="integration-code">
+        <div class="c-comment">// Generate a complete UK tax report — one API call</div>
+        <br>
+        <span class="c-keyword">const</span> <span style="color:var(--cloud);">response</span> = <span class="c-keyword">await</span> <span class="c-fn">fetch</span>(<span class="c-str">'https://api.taxchaincrypto.com/v1/taxchain/report/{address}'</span>, {
+        <br>&nbsp;&nbsp;method: <span class="c-str">'GET'</span>,
+        <br>&nbsp;&nbsp;headers: { <span class="c-str">'X-API-Key'</span>: <span class="c-str">'tc_live_...'</span> },
+        <br>&nbsp;&nbsp;params: { jurisdiction: <span class="c-str">'uk'</span>, tax_year: <span class="c-num">2025</span>, method: <span class="c-str">'section104'</span> }
+        <br>});
+        <br><br>
+        <div class="c-comment">// Response includes everything your accountant needs</div>
+        <br>
+        {
+        <br>&nbsp;&nbsp;<span class="t-key">"jurisdiction"</span>: <span class="t-str">"UK"</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"tax_year"</span>: <span class="t-num">2025</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"period"</span>: <span class="t-str">"2025-04-06 → 2026-04-05"</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"net_gain_usd"</span>: <span class="t-num">24847.50</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"estimated_tax_usd"</span>: <span class="t-num">5243.40</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"allowance_remaining_usd"</span>: <span class="t-num">0</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"disposals_count"</span>: <span class="t-num">23</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"unrealised_gains_usd"</span>: <span class="t-num">8420.00</span>,
+        <br>&nbsp;&nbsp;<span class="t-key">"harvest"</span>: {
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">"potential_tax_saving_usd"</span>: <span class="t-num">1847.20</span>,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">"opportunities_count"</span>: <span class="t-num">3</span>
+        <br>&nbsp;&nbsp;},
+        <br>&nbsp;&nbsp;<span class="t-key">"disposals"</span>: [ <span class="t-comment">/* full disposal list */</span> ]
+        <br>}
+        <br><br>
+        <div class="c-comment">// Preview endpoint — "what if I sell today?"</div>
+        <br>
+        <span class="c-keyword">GET</span> /v1/taxchain/preview/{address}?jurisdiction=uk
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-mark"></div>
+            <div class="logo-text">TaxChain<span>Crypto</span></div>
+          </div>
+          <p>Institutional crypto tax infrastructure for accountancy firms. HMRC and IRS compliant. Built by developers, priced for professionals.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#jurisdictions">Jurisdictions</a></li>
+            <li><a href="#demo">Live Demo</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#integration">API Docs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Jurisdictions</h5>
+          <ul>
+            <li><a href="#jurisdictions">UK — HMRC SA108</a></li>
+            <li><a href="#jurisdictions">US — IRS Form 8949</a></li>
+            <li><a href="#jurisdictions">Section 104 Pooling</a></li>
+            <li><a href="#jurisdictions">FIFO / HIFO / LIFO</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="mailto:support@taxchaincrypto.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">© 2026 TaxChain Crypto. All rights reserved. Not financial or legal advice.</div>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="mailto:support@taxchaincrypto.com">support@taxchaincrypto.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function runDemo() {
+      const input = document.getElementById('demo-input').value.trim();
+      const jurisdiction = document.getElementById('demo-jurisdiction').value;
+      const output = document.getElementById('terminal-output');
+
+      if (!input) {
+        output.innerHTML += `<div style="color:#ef4444;">✗ Please enter a wallet address</div>`;
+        return;
+      }
+
+      const jLabel = jurisdiction === 'uk' ? 'UK · Section 104 · HMRC' : 'US · FIFO · IRS';
+      const taxYear = jurisdiction === 'uk' ? '2025-26' : '2025';
+      const period = jurisdiction === 'uk' ? '2025-04-06 → 2026-04-05' : '2025-01-01 → 2025-12-31';
+      const allowance = jurisdiction === 'uk' ? '"allowance_remaining_usd": 0,' : '';
+      const method = jurisdiction === 'uk' ? 'Section 104 (HMRC)' : 'FIFO';
+
+      output.innerHTML = `
+        <div class="t-comment">// TaxChain Engine — ${jLabel}</div>
+        <div class="t-comment">// Fetching transaction history...</div>
+        <br>
+        <div><span class="t-prompt">→</span> Address: <span style="color:var(--cloud);">${input.slice(0,14)}...</span></div>
+        <div><span class="t-prompt">→</span> Tax year: <span class="t-num">${taxYear}</span></div>
+        <div><span class="t-prompt">→</span> Method: <span style="color:#c084fc;">${method}</span></div>
+        <br>
+        <div class="t-comment">// Fetching historical prices from CoinGecko...</div>
+        <div class="t-comment">// Applying ${jurisdiction === 'uk' ? 'Section 104 pooling + bed-and-breakfasting rules' : 'lot-level FIFO with holding period tracking'}...</div>
+        <br>
+        <div class="t-section">// REPORT OUTPUT</div>
+        {<br>
+        &nbsp;&nbsp;<span class="t-key">"jurisdiction"</span>: <span class="t-str">"${jurisdiction.toUpperCase()}"</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"tax_year"</span>: <span class="t-num">${taxYear}</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"period"</span>: <span class="t-str">"${period}"</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"method"</span>: <span class="t-str">"${method}"</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"disposals_count"</span>: <span class="t-num">${Math.floor(Math.random()*40)+5}</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"total_gains_usd"</span>: <span class="t-num">${(Math.random()*80000+5000).toFixed(2)}</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"total_losses_usd"</span>: <span class="t-num">${(Math.random()*8000+500).toFixed(2)}</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"net_gain_usd"</span>: <span class="t-num">${(Math.random()*60000+4000).toFixed(2)}</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"estimated_tax_usd"</span>: <span class="t-num">${(Math.random()*12000+800).toFixed(2)}</span>,<br>
+        &nbsp;&nbsp;${allowance}<br>
+        &nbsp;&nbsp;<span class="t-key">"unrealised_gains_usd"</span>: <span class="t-num">${(Math.random()*20000+1000).toFixed(2)}</span>,<br>
+        &nbsp;&nbsp;<span class="t-key">"harvest"</span>: {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">"potential_tax_saving_usd"</span>: <span class="t-num">${(Math.random()*3000+200).toFixed(2)}</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-key">"opportunities_count"</span>: <span class="t-num">${Math.floor(Math.random()*5)+1}</span><br>
+        &nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;<span class="t-key">"generated_at"</span>: <span class="t-str">"${new Date().toISOString()}"</span><br>
+        }<br>
+        <br>
+        <div class="t-result">✓ Report complete · Billed: £10.00 · Report ID: tc_${Math.random().toString(36).slice(2,10)}</div>
+      `;
+      output.scrollTop = output.scrollHeight;
+    }
+
+    document.getElementById('demo-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') runDemo();
+    });
+  </script>
+</body>
+</html>
