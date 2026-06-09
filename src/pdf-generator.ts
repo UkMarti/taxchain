@@ -6,13 +6,13 @@ const CITATIONS = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'citations.json'), 'utf8')
 );
 
-export async function generateWorkingPaper(report: any, jurisdiction: string): Promise<<Buffer> {
+export async function generateWorkingPaper(report: any, jurisdiction: string): Promise<Buffer> {
   const cite = CITATIONS[jurisdiction] || CITATIONS['uk'];
-  
+
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({ margin: 50, size: 'A4' });
     const chunks: Buffer[] = [];
-    
+
     doc.on('data', chunk => chunks.push(chunk));
     doc.on('end', () => resolve(Buffer.concat(chunks)));
     doc.on('error', reject);
@@ -54,7 +54,7 @@ export async function generateWorkingPaper(report: any, jurisdiction: string): P
 
     doc.addPage();
     doc.fontSize(13).font('Helvetica-Bold').fillColor('#000').text('Disposal Detail', 50, 50);
-    
+
     if (!report.disposals || report.disposals.length === 0) {
       doc.fontSize(10).font('Helvetica').fillColor('#666').text('No disposals recorded in this tax year.', 50, 75);
     } else {
@@ -98,12 +98,12 @@ export async function generateWorkingPaper(report: any, jurisdiction: string): P
     doc.fontSize(12).font('Helvetica-Bold').fillColor('#000').text('Accountant Sign-Off', 50, 320);
     doc.fontSize(9).font('Helvetica').fillColor('#444');
     doc.text(cite.signature_prompt, 50, 340, { width: 495 });
-    
+
     doc.moveTo(50, 390).lineTo(280, 390).strokeColor('#000').lineWidth(0.5).stroke();
     doc.moveTo(320, 390).lineTo(545, 390).stroke();
     doc.fontSize(8).fillColor('#666');
     doc.text('Signature', 50, 395); doc.text('Date', 320, 395);
-    
+
     doc.moveTo(50, 440).lineTo(280, 440).stroke();
     doc.moveTo(320, 440).lineTo(545, 440).stroke();
     doc.text('Name', 50, 445); doc.text('License / Registration Number', 320, 445);

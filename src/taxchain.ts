@@ -10,7 +10,6 @@ dotenv.config();
 
 const SAT_TO_BTC      = 1e-8;
 const CACHE_TTL       = 300_000;
-const PRICE_CACHE_TTL = 86_400_000;
 
 const _priceCache = new Map<string, number>();
 const _txCache    = new Map<string, { data: any; expiresAt: number }>();
@@ -159,7 +158,7 @@ function parseWalletFlows(txs: any[], address: string) {
     .sort((a, b) => a.timestamp - b.timestamp);
 }
 
-async function enrichWithPrices(flows: ReturnType<<typeof parseWalletFlows>, symbol: string, currentPrice: number) {
+async function enrichWithPrices(flows: any[], symbol: string, currentPrice: number) {
   const enriched = [];
   for (const flow of flows) {
     const { price, source, source_url } = await getHistoricalPrice(symbol, flow.timestamp, currentPrice);
@@ -317,9 +316,12 @@ app.use(express.json());
 app.get('/v1/tax/report/:address', async (req, res) => {
   try {
     const { address } = req.params;
-    const { symbol = 'BTC', method = 'fifo', jurisdiction = 'uk', tax_year } = req.query;
+    const symbol = (req.query.symbol as string) || 'BTC';
+    const method = (req.query.method as string) || 'fifo';
+    const jurisdiction = (req.query.jurisdiction as string) || 'uk';
+    const tax_year = req.query.tax_year as string;
     if (!address) return res.status(400).json({ error: 'address required' });
-    const report = await generateTaxReport(address, symbol, method, jurisdiction, tax_year ? parseInt(tax_year as string) : undefined);
+    const report = await generateTaxReport(address, symbol, method, jurisdiction, tax_year ? parseInt(tax_year) : undefined);
     res.json(report);
   } catch (err: any) { console.error('[TaxChain] Error:', err.message); res.status(500).json({ error: err.message }); }
 });
@@ -327,7 +329,8 @@ app.get('/v1/tax/report/:address', async (req, res) => {
 app.get('/v1/tax/preview/:address', async (req, res) => {
   try {
     const { address } = req.params;
-    const { symbol = 'BTC', jurisdiction = 'uk' } = req.query;
+    const symbol = (req.query.symbol as string) || 'BTC';
+    const jurisdiction = (req.query.jurisdiction as string) || 'uk';
     res.json(await sellTodayPreview(address, symbol, jurisdiction));
   } catch (err: any) { res.status(500).json({ error: err.message }); }
 });
@@ -335,8 +338,9 @@ app.get('/v1/tax/preview/:address', async (req, res) => {
 app.get('/v1/tax/pdf/:address', async (req, res) => {
   try {
     const { address } = req.params;
-    const { jurisdiction = 'uk', tax_year } = req.query;
-    const report = await generateTaxReport(address, 'BTC', jurisdiction === 'uk' ? 'section104' : 'fifo', jurisdiction, tax_year ? parseInt(tax_year as string) : undefined);
+    const jurisdiction = (req.query.jurisdiction as string) || 'uk';
+    const tax_year = req.query.tax_year as string;
+    const report = await generateTaxReport(address, 'BTC', jurisdiction === 'uk' ? 'section104' : 'fifo', jurisdiction, tax_year ? parseInt(tax_year) : undefined);
     const pdfBuffer = await generateWorkingPaper(report, jurisdiction);
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', `attachment; filename="taxchain-${address.slice(0,8)}-${jurisdiction}.pdf"`);
