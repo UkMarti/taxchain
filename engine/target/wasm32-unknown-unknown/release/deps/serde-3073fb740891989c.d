@@ -1,0 +1,14 @@
+C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\deps\serde-3073fb740891989c.d: C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\build\serde-7e17b2cafa070be2\out/private.rs
+
+C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\deps\libserde-3073fb740891989c.rlib: C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\build\serde-7e17b2cafa070be2\out/private.rs
+
+C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\deps\libserde-3073fb740891989c.rmeta: C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\build\serde-7e17b2cafa070be2\out/private.rs
+
+C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs:
+C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs:
+C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs:
+C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs:
+C:\Users\me\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs:
+C:\users\me\TAXCHAIN\engine\target\wasm32-unknown-unknown\release\build\serde-7e17b2cafa070be2\out/private.rs:
+
+# env-dep:OUT_DIR=C:\\users\\me\\TAXCHAIN\\engine\\target\\wasm32-unknown-unknown\\release\\build\\serde-7e17b2cafa070be2\\out

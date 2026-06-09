@@ -1,0 +1,421 @@
+{
+  "jurisdiction_code": "PK",
+  "jurisdiction_label": "Pakistan",
+  "tax_year": "2025-26",
+  "skills": [
+    {
+      "tab": "Income Tax (Indiv & AOP)",
+      "slug": "pk-income-tax",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Salary brackets (TY 2024-25 baseline — TBC under Finance Act 2025)",
+          "rows": [
+            {"item": "0 – 600,000", "value": "0%", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "600,001 – 1,200,000", "value": "1% on amount > 600,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "1,200,001 – 2,200,000", "value": "11% on excess + 6,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "2,200,001 – 3,200,000", "value": "23% on excess + 116,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "3,200,001 – 4,100,000", "value": "30% on excess + 346,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "> 4,100,000", "value": "35% on excess + 616,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "Salary table applies", "value": "Where salary income is more than 75% of total taxable income", "ref": "First Schedule, Pt I, Div I"}
+          ]
+        },
+        {
+          "section": "Non-salary brackets — business / AOP (TY 2024-25 baseline — TBC FA 2025)",
+          "rows": [
+            {"item": "0 – 600,000", "value": "0%", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "600,001 – 1,200,000", "value": "15% on amount > 600,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "1,200,001 – 1,600,000", "value": "20% on excess + 90,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "1,600,001 – 3,200,000", "value": "30% on excess + 170,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "3,200,001 – 5,600,000", "value": "40% on excess + 650,000", "ref": "First Schedule, Pt I, Div I"},
+            {"item": "> 5,600,000", "value": "45% on excess + 1,610,000", "ref": "First Schedule, Pt I, Div I"}
+          ]
+        },
+        {
+          "section": "Surcharge & other charges",
+          "rows": [
+            {"item": "10% surcharge", "value": "10% of bracket tax where taxable income > PKR 10,000,000 (applied before withholding credits)", "ref": "Finance Act 2024/2025 (TBC)"},
+            {"item": "Minimum tax on turnover §113", "value": "1.25% where turnover > PKR 100,000,000 (TBC)", "ref": "ITO 2001 §113"},
+            {"item": "Default surcharge §205", "value": "12% per annum (TBC) on unpaid tax", "ref": "ITO 2001 §205"},
+            {"item": "Super tax §4C", "value": "Separate charge above PKR 150M (out of this skill's scope)", "ref": "ITO 2001 §4C"}
+          ]
+        },
+        {
+          "section": "Residency & filing",
+          "rows": [
+            {"item": "Resident individual", "value": "Present in Pakistan ≥ 183 days in the tax year", "ref": "ITO 2001 §82"},
+            {"item": "Tax year", "value": "1 July – 30 June", "ref": "ITO 2001"},
+            {"item": "Return deadline — individual", "value": "30 September following close of tax year", "ref": "ITO 2001 §118(2)"},
+            {"item": "Return deadline — AOP", "value": "31 December following close of tax year (TBC)", "ref": "ITO 2001 §118(3)"},
+            {"item": "Wealth statement", "value": "Mandatory for every resident individual filing a return", "ref": "ITO 2001 §116"},
+            {"item": "Advance tax instalments", "value": "Quarterly: 15 Sept, 15 Dec, 15 March, 15 June", "ref": "ITO 2001 §147(5)"},
+            {"item": "Advance tax threshold", "value": "Latest assessed taxable income > PKR 1,000,000 (TBC)", "ref": "ITO 2001 §147"}
+          ]
+        },
+        {
+          "section": "IT export & tax credits",
+          "rows": [
+            {"item": "§154A IT/ITeS export final tax (PSEB-registered)", "value": "0.25% of export proceeds via banking channel; excluded from bracket computation & from the PKR 10M surcharge test", "ref": "ITO 2001 §154A"},
+            {"item": "Non-PSEB IT export rate", "value": "1% (TBC)", "ref": "ITO 2001 §154A"},
+            {"item": "§61 charitable donation credit", "value": "Up to 30% of taxable income (individuals) / 20% (AOPs), at average rate", "ref": "ITO 2001 §61"},
+            {"item": "§62 listed shares / sukuk credit", "value": "Lower of cost / 20% of taxable income / PKR 2,000,000 (TBC)", "ref": "ITO 2001 §62"},
+            {"item": "§63 voluntary pension contribution", "value": "20% of taxable income (age uplift available)", "ref": "ITO 2001 §63"},
+            {"item": "§103 foreign tax credit", "value": "Lesser of foreign tax paid or Pakistan tax on that income; no carry-forward", "ref": "ITO 2001 §103"},
+            {"item": "AOP member share of profit", "value": "Exempt at member level (AOP has already paid the tax)", "ref": "ITO 2001 §92"}
+          ]
+        },
+        {
+          "section": "ATL & penalties",
+          "rows": [
+            {"item": "ATL surcharge to regain filer status", "value": "PKR 1,000 individual / 10,000 AOP / 20,000 company (TBC)", "ref": "ITO 2001 (FA-set)"},
+            {"item": "Non-filer withholding", "value": "2x to 3x filer rates across transaction codes", "ref": "ITO 2001 Tenth Schedule"},
+            {"item": "Late filing penalty §182", "value": "0.1% of tax payable per day, capped at 200% of tax payable", "ref": "ITO 2001 §182"},
+            {"item": "Business loss carry-forward", "value": "6 years", "ref": "ITO 2001 §57"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Corporate Income Tax",
+      "slug": "pk-corporate-tax",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Rates",
+          "rows": [
+            {"item": "Standard CIT rate", "value": "29% of taxable income", "ref": "First Schedule, Pt I, Div II"},
+            {"item": "Banking companies", "value": "39% (TBC FA 2025)", "ref": "First Schedule; Seventh Schedule"},
+            {"item": "Small company rate", "value": "20%", "ref": "§2(59A); First Schedule, Pt I, Div II"},
+            {"item": "PSEB IT/ITeS export final tax", "value": "1% concessional final tax (TBC FA 2025)", "ref": "Second Schedule / §154A"}
+          ]
+        },
+        {
+          "section": "Small company test (ALL conditions must hold)",
+          "rows": [
+            {"item": "Paid-up capital + undistributed reserves", "value": "≤ PKR 50,000,000", "ref": "ITO 2001 §2(59A)"},
+            {"item": "Annual turnover", "value": "≤ PKR 250,000,000", "ref": "ITO 2001 §2(59A)"},
+            {"item": "Employees", "value": "≤ 250", "ref": "ITO 2001 §2(59A)"},
+            {"item": "Not formed by splitting an existing business", "value": "Condition", "ref": "ITO 2001 §2(59A)(d)"},
+            {"item": "Not a subsidiary/associate of a non-small company", "value": "Condition", "ref": "ITO 2001 §2(59A)(e)"}
+          ]
+        },
+        {
+          "section": "Super tax §4C bands (post-FA 2024 — TBC FA 2025)",
+          "rows": [
+            {"item": "Up to 150,000,000", "value": "0%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "150,000,001 – 200,000,000", "value": "1%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "200,000,001 – 250,000,000", "value": "2%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "250,000,001 – 300,000,000", "value": "3%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "300,000,001 – 350,000,000", "value": "4%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "350,000,001 – 400,000,000", "value": "6%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "400,000,001 – 500,000,000", "value": "8%", "ref": "§4C; First Schedule Div IIB"},
+            {"item": "Above 500,000,000", "value": "10%", "ref": "§4C; First Schedule Div IIB"}
+          ]
+        },
+        {
+          "section": "Minimum tax, ACT, losses",
+          "rows": [
+            {"item": "Minimum tax on turnover §113", "value": "1.25% of turnover where normal tax is lower (incl. loss years)", "ref": "ITO 2001 §113"},
+            {"item": "Minimum tax excess carry-forward", "value": "5 tax years", "ref": "ITO 2001 §113(2)(c)"},
+            {"item": "Alternative Corporate Tax §113C", "value": "17% of accounting income (pay higher of normal tax or ACT)", "ref": "ITO 2001 §113C"},
+            {"item": "ACT excess carry-forward", "value": "10 tax years", "ref": "ITO 2001 §113C"},
+            {"item": "Tax loss carry-forward", "value": "6 years; no carry-back", "ref": "ITO 2001 §57"},
+            {"item": "Unabsorbed depreciation", "value": "Carried forward indefinitely", "ref": "ITO 2001 §57"}
+          ]
+        },
+        {
+          "section": "Filing, advance tax & groups",
+          "rows": [
+            {"item": "Annual return (companies)", "value": "Due 31 December following tax year-end", "ref": "ITO 2001 §118"},
+            {"item": "Advance tax §147 instalments", "value": "Quarterly: 25 Sep, 25 Dec, 25 Mar, 15 Jun (Q4 earlier)", "ref": "ITO 2001 §147"},
+            {"item": "Record retention", "value": "6 years from end of tax year", "ref": "ITO 2001 §174"},
+            {"item": "Late filing penalty §182", "value": "0.1% of tax/day; min PKR 40,000; max 50% of tax payable", "ref": "ITO 2001 §182"},
+            {"item": "Group relief (loss surrender)", "value": "Requires 100% ownership, residency, continuity tests", "ref": "ITO 2001 §59AA"},
+            {"item": "Group taxation (consolidated return)", "value": "Requires SECP + FBR pre-approval", "ref": "ITO 2001 §59B"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Capital Gains Tax",
+      "slug": "pk-cgt",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Securities §37A (TBC FA 2025)",
+          "rows": [
+            {"item": "PSX-listed shares — filer", "value": "15% flat", "ref": "ITO 2001 §37A"},
+            {"item": "PSX-listed shares — non-filer", "value": "Up to 30%", "ref": "ITO 2001 §37A"},
+            {"item": "Modaraba certs / redeemable capital / listed debt", "value": "Same 15% (filer) / up to 30% (non-filer)", "ref": "ITO 2001 §37A"},
+            {"item": "Collection", "value": "At source by NCCPL on settled trades; investor reconciles in annual return", "ref": "§37A / NCCPL"}
+          ]
+        },
+        {
+          "section": "Immovable property §37 (illustrative taper — verify FA 2025)",
+          "rows": [
+            {"item": "Holding ≤ 1 year — filer", "value": "15% (full statutory rate)", "ref": "ITO 2001 §37"},
+            {"item": "Holding > 1 ≤ 2 years", "value": "~12.5% (illustrative)", "ref": "ITO 2001 §37"},
+            {"item": "Holding > 2 ≤ 3 years", "value": "~10% (illustrative)", "ref": "ITO 2001 §37"},
+            {"item": "Holding > 3 ≤ 4 years", "value": "~7.5% (illustrative)", "ref": "ITO 2001 §37"},
+            {"item": "Holding > 4 years", "value": "Tapers to 0% on statutory schedule", "ref": "ITO 2001 §37"},
+            {"item": "Non-filers", "value": "Substantially higher slab across all holding bands", "ref": "ITO 2001 §37"},
+            {"item": "Deemed proceeds", "value": "Higher of declared consideration and FBR-notified valuation table value", "ref": "ITO 2001 §37"},
+            {"item": "Collection", "value": "§236C (seller) / §236K (buyer) advance tax at execution", "ref": "§236C / §236K"}
+          ]
+        },
+        {
+          "section": "Other assets & losses",
+          "rows": [
+            {"item": "Other capital assets (unlisted shares, art, etc.)", "value": "Taxed at normal slab rates under §37 general", "ref": "ITO 2001 §37"},
+            {"item": "Crypto / virtual digital assets", "value": "Treated as §37 capital asset (FBR position); framework unsettled — flag", "ref": "ITO 2001 §37"},
+            {"item": "Capital losses", "value": "Ring-fenced — only set off against capital gains", "ref": "ITO 2001 §37/§37A"},
+            {"item": "Securities loss carry-forward", "value": "6 tax years (verify)", "ref": "ITO 2001 §37A"},
+            {"item": "Property/other loss carry-forward", "value": "6 tax years (verify); no carry-back", "ref": "ITO 2001 §37"},
+            {"item": "Inheritance", "value": "Not a disposal — no CGT on inheritance; base cost carries to heir", "ref": "ITO 2001"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Withholding Tax",
+      "slug": "pk-withholding-tax",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Imports & passive income",
+          "rows": [
+            {"item": "§148 Imports — commercial", "value": "Filer 5.5% / non-filer 11%", "ref": "ITO 2001 §148"},
+            {"item": "§148 Imports — industrial own-use raw materials", "value": "1%–5.5% (2x non-filer)", "ref": "ITO 2001 §148"},
+            {"item": "§150 Dividends — general", "value": "Filer 15% / non-filer 25% (final)", "ref": "ITO 2001 §150"},
+            {"item": "§150 Dividends — IPP / mutual fund / REIT", "value": "7.5%–25% per category (final)", "ref": "ITO 2001 §150"},
+            {"item": "§151 Profit on debt", "value": "Filer 15% / non-filer 30%", "ref": "ITO 2001 §151"}
+          ]
+        },
+        {
+          "section": "Non-residents §152",
+          "rows": [
+            {"item": "§152(1) Royalty / fee for technical services", "value": "15% (treaty cap may apply) — final", "ref": "ITO 2001 §152(1)"},
+            {"item": "§152(1A) Non-resident contract", "value": "7% (PE-attributable) / 14% non-filer", "ref": "ITO 2001 §152(1A)"},
+            {"item": "§152(1AA) Insurance / reinsurance premium", "value": "5% (2x non-filer)", "ref": "ITO 2001 §152(1AA)"},
+            {"item": "§152(2) Other payments to non-residents", "value": "10%–20% per nature (2x non-filer)", "ref": "ITO 2001 §152(2)"}
+          ]
+        },
+        {
+          "section": "§153 Goods / services / contracts",
+          "rows": [
+            {"item": "§153(1)(a) Goods — to company", "value": "Filer 4.5% / non-filer 9%", "ref": "ITO 2001 §153"},
+            {"item": "§153(1)(a) Goods — to individual / AOP", "value": "Filer 5.5% / non-filer 11%", "ref": "ITO 2001 §153"},
+            {"item": "§153(1)(b) Services — general", "value": "Filer 11% / non-filer 22% (minimum tax)", "ref": "ITO 2001 §153"},
+            {"item": "§153(1)(b) Services — low-margin sectors", "value": "Filer 4% / non-filer 8%", "ref": "ITO 2001 §153"},
+            {"item": "§153(1)(c) Contracts", "value": "Filer 7% / non-filer 15%", "ref": "ITO 2001 §153"},
+            {"item": "§153(2) Sportspersons", "value": "10% / 20% (final)", "ref": "ITO 2001 §153(2)"},
+            {"item": "Prescribed-person threshold", "value": "Companies; AOPs/individuals with turnover ≥ PKR 50M (TBC)", "ref": "ITO 2001 §153(7)"}
+          ]
+        },
+        {
+          "section": "Rent, prizes & property",
+          "rows": [
+            {"item": "§155 Rent — individuals / AOPs", "value": "Slab: 0% to 300k; then 5% / 10% / 15% / 25%", "ref": "ITO 2001 §155"},
+            {"item": "§155 Rent — companies", "value": "Filer 15% / non-filer 30% (flat)", "ref": "ITO 2001 §155"},
+            {"item": "§156 Prize bonds", "value": "Filer 15% / non-filer 30% (final)", "ref": "ITO 2001 §156"},
+            {"item": "§156 Raffle / lottery / quiz", "value": "Filer 20% / non-filer 40% (final)", "ref": "ITO 2001 §156"},
+            {"item": "§156A Petroleum commission", "value": "12% / 24% (final)", "ref": "ITO 2001 §156A"},
+            {"item": "§236C Sale of immovable property (seller)", "value": "Filer 3% / non-filer 6%", "ref": "ITO 2001 §236C"},
+            {"item": "§236K Purchase of property (buyer)", "value": "Filer 3% / non-filer 10.5%", "ref": "ITO 2001 §236K"},
+            {"item": "§231A Cash withdrawal (non-filer > 50k/day)", "value": "0.6%", "ref": "ITO 2001 §231A"},
+            {"item": "§154 Export proceeds", "value": "1% filer / 2% non-filer (generally final)", "ref": "ITO 2001 §154"}
+          ]
+        },
+        {
+          "section": "Compliance",
+          "rows": [
+            {"item": "Tax point §158", "value": "Earlier of payment or credit; base excludes sales tax", "ref": "ITO 2001 §158"},
+            {"item": "Deposit deadline (companies)", "value": "Within 7 days of end of the week of deduction", "ref": "Income Tax Rules 2002, Rule 43"},
+            {"item": "Monthly §165 statement", "value": "By the 15th of the following month", "ref": "ITO 2001 §165"},
+            {"item": "Annual reconciliation", "value": "By 31 July following the tax year", "ref": "ITO 2001 §165"},
+            {"item": "Late §165 statement penalty", "value": "PKR 2,500 per day, minimum PKR 50,000", "ref": "ITO 2001 §182"},
+            {"item": "Failure to deduct", "value": "Expense disallowed (§21(c)); recovery from payer (§161) + default surcharge", "ref": "ITO 2001 §21(c)/§161"},
+            {"item": "§159 reduced-rate / exemption certificate", "value": "Available on IRIS; must be held before payment", "ref": "ITO 2001 §159"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Federal Sales Tax (Goods)",
+      "slug": "pk-sales-tax-federal",
+      "version": "2.0",
+      "sections": [
+        {
+          "section": "Rates",
+          "rows": [
+            {"item": "Standard rate", "value": "18% (raised from 17% on 1 Jul 2024; retained by FA 2025)", "ref": "STA 1990 §3"},
+            {"item": "Higher rate (luxury / specified)", "value": "25%", "ref": "Eighth Schedule / SROs"},
+            {"item": "Zero rate (exports, Fifth Schedule)", "value": "0% (full input recovery / refund)", "ref": "STA 1990 §4; Fifth Schedule"},
+            {"item": "Exempt (Sixth Schedule)", "value": "No output tax; no input credit", "ref": "STA 1990 §13; Sixth Schedule"},
+            {"item": "Further tax (supplies to unregistered persons)", "value": "4% in addition to standard rate", "ref": "STA 1990 §3(1A)"},
+            {"item": "Integrated Tier-1 retailer reduced rate (specified items)", "value": "15% (TBC SRO)", "ref": "Eighth Schedule"}
+          ]
+        },
+        {
+          "section": "Registration",
+          "rows": [
+            {"item": "Manufacturers", "value": "Mandatory, no turnover threshold", "ref": "STA 1990 §14"},
+            {"item": "Turnover registration threshold", "value": "Annual turnover > PKR 10,000,000", "ref": "STA 1990 §14 / SRO"},
+            {"item": "Tier-1 retailer markers", "value": "Electricity bill > PKR 1.2M/yr; shop ≥ 1,000 sq ft (2,000 for furniture); national chain; A/C mall", "ref": "STA 1990 §2(43A)"}
+          ]
+        },
+        {
+          "section": "Input tax & credit",
+          "rows": [
+            {"item": "Input credit cap §8B", "value": "90% of output tax (excess carried forward)", "ref": "STA 1990 §8B"},
+            {"item": "Input claim time limit", "value": "Within 6 tax periods of the invoice", "ref": "STA 1990 §7(1) proviso"},
+            {"item": "Input credit conditions", "value": "Supplier on ATL + invoice appears in buyer's Annex-A", "ref": "STA 1990 §7 / §8(1)(ca)"},
+            {"item": "CNIC requirement", "value": "Required on invoices > PKR 100,000 to unregistered buyers", "ref": "STA 1990 §23(1)(b)"}
+          ]
+        },
+        {
+          "section": "Filing & penalties",
+          "rows": [
+            {"item": "Return (STR) due", "value": "18th of following month (payment by 15th)", "ref": "FBR SOP"},
+            {"item": "Late filing penalty", "value": "PKR 10,000 or PKR 200/day, whichever higher", "ref": "STA 1990 §33"},
+            {"item": "Default surcharge", "value": "KIBOR + 3% per annum on unpaid tax", "ref": "STA 1990 §34"},
+            {"item": "Fake / flying invoice", "value": "PKR 25,000 or 100% of tax + criminal liability", "ref": "STA 1990 §37A"},
+            {"item": "Tier-1 retailer not POS-integrated", "value": "60% input-tax disallowance + monetary penalty", "ref": "STA 1990 §33"},
+            {"item": "Revised return", "value": "Within 120 days with Commissioner's approval", "ref": "STA 1990 §26(3)"},
+            {"item": "Refund claim time limit", "value": "Within 1 year of date of payment", "ref": "STA 1990 §66"},
+            {"item": "ATL reinstatement surcharge", "value": "PKR 20,000 company / 10,000 AOP / 1,000 individual", "ref": "STA 1990 (FA-set)"}
+          ]
+        },
+        {
+          "section": "Special regimes",
+          "rows": [
+            {"item": "Ninth Schedule", "value": "Fixed PKR tax per unit on cellular mobile phones (by value bracket)", "ref": "STA 1990 Ninth Schedule"},
+            {"item": "Tenth Schedule", "value": "Small-retailer regime via electricity bill", "ref": "STA 1990 Tenth Schedule"},
+            {"item": "Extra tax (consumer goods to unregistered retailers)", "value": "2%–3% (SRO-driven)", "ref": "SRO 297(I)/2023 etc."}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Provincial Sales Tax (Services)",
+      "slug": "pk-sales-tax-services",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Standard rates by authority",
+          "rows": [
+            {"item": "Sindh (SRB)", "value": "13%", "ref": "Sindh Sales Tax on Services Act 2011"},
+            {"item": "Punjab (PRA)", "value": "16%", "ref": "Punjab Sales Tax on Services Act 2012"},
+            {"item": "Khyber Pakhtunkhwa (KPRA)", "value": "15%", "ref": "KP Finance Act 2013, Ch. VI"},
+            {"item": "Balochistan (BRA)", "value": "15%", "ref": "Balochistan Sales Tax on Services Act 2015"},
+            {"item": "Islamabad ICT (FBR)", "value": "16%", "ref": "ICT (Tax on Services) Ordinance 2001"}
+          ]
+        },
+        {
+          "section": "Registration & filing",
+          "rows": [
+            {"item": "Return due (all authorities)", "value": "18th of following month (payment by 15th)", "ref": "Provincial Acts"},
+            {"item": "Registration", "value": "Mandatory on commencement of taxable supplies (no general turnover threshold)", "ref": "Provincial Acts"},
+            {"item": "Late filing penalty (e.g. SRB)", "value": "Minimum PKR 10,000 + per-day amount", "ref": "SRB Act §43 (and provincial equivalents)"},
+            {"item": "Default surcharge", "value": "KIBOR + 3% per annum", "ref": "SRB Act §44 (and equivalents)"},
+            {"item": "Records retention", "value": "6 years", "ref": "Provincial Acts"}
+          ]
+        },
+        {
+          "section": "Exemptions & cross-border",
+          "rows": [
+            {"item": "Exported IT/ITeS services", "value": "Exempt/zero-rated where PSEB-registered + foreign-currency receipt via banking channel", "ref": "Provincial Second Schedules"},
+            {"item": "Educational & healthcare services", "value": "Generally exempt (healthcare except cosmetic)", "ref": "Provincial Schedules"},
+            {"item": "Cross-province supply", "value": "Origin authority usually asserts primary right; destination may also claim", "ref": "Place-of-supply rules"},
+            {"item": "Inbound digital services", "value": "Reverse charge applies under some authorities (notably SRB)", "ref": "Provincial Acts"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Payroll, EOBI & Social Sec",
+      "slug": "pk-payroll-eobi",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "EOBI (federal pension)",
+          "rows": [
+            {"item": "Employer contribution", "value": "5% of federal minimum wage", "ref": "Employees' Old-Age Benefits Act 1976"},
+            {"item": "Employee contribution", "value": "1% of federal minimum wage", "ref": "Employees' Old-Age Benefits Act 1976"},
+            {"item": "Contribution base", "value": "Federal minimum wage ~PKR 37,000/month (verify current notification)", "ref": "Federal notification"},
+            {"item": "Coverage threshold", "value": "Mandatory at ≥ 5 employees", "ref": "EOBI Act 1976"},
+            {"item": "Monthly contribution (PR-03/PR-04)", "value": "Due 15th of following month", "ref": "EOBI"}
+          ]
+        },
+        {
+          "section": "Provincial social security (employer-only)",
+          "rows": [
+            {"item": "SESSI (Sindh)", "value": "6% of insured worker's wage", "ref": "Sindh Employees' Social Security Ordinance 1965"},
+            {"item": "PESSI (Punjab)", "value": "6% of insured worker's wage", "ref": "Punjab adapted 1965 Ordinance"},
+            {"item": "KPESSI (KP)", "value": "6% (verify)", "ref": "KP adapted 1965 Ordinance"},
+            {"item": "BESSI (Balochistan)", "value": "6% (verify)", "ref": "Balochistan adapted 1965 Ordinance"},
+            {"item": "Insured-worker threshold", "value": "Wage band ~PKR 30,000–50,000/month (verify provincial notification)", "ref": "Provincial notification"},
+            {"item": "Routing", "value": "To the province where the establishment/worker is employed", "ref": "Provincial Ordinances"}
+          ]
+        },
+        {
+          "section": "Salary withholding §149 & WWF/WPPF",
+          "rows": [
+            {"item": "Monthly withholding mechanic", "value": "Estimated annual salary tax / 12 (salary brackets from pk-income-tax)", "ref": "ITO 2001 §149"},
+            {"item": "§165 monthly statement", "value": "By the 15th of the following month", "ref": "ITO 2001 §165"},
+            {"item": "Annual reconciliation + employee certificate", "value": "By 31 July (Rule 42 certificate to each employee)", "ref": "ITO 2001 §149; Rule 42"},
+            {"item": "Workers Welfare Fund (WWF)", "value": "2% of taxable profit (employer/corporate-side)", "ref": "Workers Welfare Fund Ordinance 1971"},
+            {"item": "Workers Profit Participation Fund (WPPF)", "value": "5% of profit before tax; companies with 50+ employees", "ref": "Companies Profits (Workers' Participation) Act 1968"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Formation & Entity Choice",
+      "slug": "pk-formation",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Registrar & timing",
+          "rows": [
+            {"item": "Company registrar", "value": "SECP (eservices.secp.gov.pk)", "ref": "Companies Act 2017"},
+            {"item": "Formation time", "value": "Sole-prop NTN 1–3 days; SMC-Pvt/Pvt Ltd 4–10 days; PLC 3–6 weeks; NPO 6–12 weeks", "ref": "SECP eServices"},
+            {"item": "Name reservation validity", "value": "60 days", "ref": "SECP"}
+          ]
+        },
+        {
+          "section": "Entity minimums",
+          "rows": [
+            {"item": "Sole proprietorship", "value": "1 owner; unlimited liability; no minimum capital", "ref": "ITO 2001 (NTN-based)"},
+            {"item": "AOP / partnership", "value": "2–20 partners; unlimited joint & several liability", "ref": "Partnership Act 1932 §4"},
+            {"item": "SMC-Pvt", "value": "1 shareholder + nominee director; commonly PKR 100,000 capital (no statutory floor)", "ref": "Companies Act 2017"},
+            {"item": "Private Limited (Pvt Ltd)", "value": "2 members & 2 directors; max 50 members; commonly PKR 100,000", "ref": "Companies Act 2017"},
+            {"item": "Public Limited (PLC)", "value": "3 members & 3 directors (7 if listed); min paid-up PKR 200,000", "ref": "Companies Act 2017"},
+            {"item": "Section 42 NPO", "value": "3 members & 3 directors; min capital PKR 1,000,000", "ref": "Companies Act 2017 §42"},
+            {"item": "Society", "value": "Minimum 7 members", "ref": "Societies Registration Act 1860 §1"},
+            {"item": "Trust", "value": "Minimum 2 trustees", "ref": "Trusts Act 1882"}
+          ]
+        },
+        {
+          "section": "PSEB (IT/ITeS exports) — critical",
+          "rows": [
+            {"item": "PSEB-registered export final tax", "value": "0.25% of qualifying export remittances", "ref": "ITO 2001 §154A / SRO 1359(I)/2022"},
+            {"item": "Non-PSEB export rate", "value": "1%", "ref": "ITO 2001 §154A"},
+            {"item": "Reduced dividend tax (PSEB IT profits)", "value": "7.5% (vs 15% standard) — verify FA 2025", "ref": "Finance Act (verify)"},
+            {"item": "PSEB registration", "value": "Via pseb.org.pk; certificate ~2–4 weeks; annual renewal", "ref": "PSEB"},
+            {"item": "STZA zone enterprises", "value": "Up to 10-year corporate tax holiday", "ref": "Special Technology Zones Authority"}
+          ]
+        },
+        {
+          "section": "Tax registrations",
+          "rows": [
+            {"item": "NTN", "value": "Via FBR IRIS (CNIC functions as NTN for individuals)", "ref": "FBR"},
+            {"item": "STRN", "value": "FBR for goods; provincial authority (SRB/PRA/KPRA/BRA) for services", "ref": "STA 1990 / Provincial Acts"},
+            {"item": "EOBI", "value": "Mandatory employer registration at ≥ 5 employees", "ref": "EOBI Act 1976"},
+            {"item": "Beneficial Ownership Register", "value": "Mandatory disclosure of ultimate beneficial owners", "ref": "SECP Beneficial Ownership Regulations 2020"}
+          ]
+        }
+      ]
+    }
+  ]
+}

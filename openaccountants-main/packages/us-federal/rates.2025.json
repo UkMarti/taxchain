@@ -1,0 +1,327 @@
+{
+  "tax_year": 2025,
+  "valid_as_of": "2025-11-15",
+  "legislative_basis": "OBBBA P.L. 119-21 (signed July 4, 2025); TCJA permanent extensions; Rev. Proc. 2024-40; IRS Notice 2024-80; SSA Annual Fact Sheet 2025",
+  "last_updated_by": "openaccountants",
+  "source_documents": [
+    "Rev. Proc. 2024-40 (annual inflation adjustments for 2025)",
+    "IRS Notice 2024-80 (retirement plan limits 2025)",
+    "SSA Fact Sheet 2025 (OASDI wage base; press release 2024-10-10)",
+    "OBBBA P.L. 119-21 (One Big Beautiful Bill Act, enacted July 4 2025)",
+    "Rev. Proc. 2025-32 (annual inflation adjustments amended for OBBBA, where applicable)",
+    "Notice 2025-08 (2025 standard mileage rates)",
+    "Rev. Rul. 2025-18 (Q4 2025 underpayment interest rate)",
+    "Rev. Proc. 2024-25 (HSA / HDHP limits for 2025)"
+  ],
+  "rates_individual": {
+    "ordinary_income_brackets": {
+      "single": [
+        { "rate": 0.10, "from": 0,       "to": 11925 },
+        { "rate": 0.12, "from": 11925,   "to": 48475 },
+        { "rate": 0.22, "from": 48475,   "to": 103350 },
+        { "rate": 0.24, "from": 103350,  "to": 197300 },
+        { "rate": 0.32, "from": 197300,  "to": 250525 },
+        { "rate": 0.35, "from": 250525,  "to": 626350 },
+        { "rate": 0.37, "from": 626350,  "to": null }
+      ],
+      "mfj": [
+        { "rate": 0.10, "from": 0,       "to": 23850 },
+        { "rate": 0.12, "from": 23850,   "to": 96950 },
+        { "rate": 0.22, "from": 96950,   "to": 206700 },
+        { "rate": 0.24, "from": 206700,  "to": 394600 },
+        { "rate": 0.32, "from": 394600,  "to": 501050 },
+        { "rate": 0.35, "from": 501050,  "to": 751600 },
+        { "rate": 0.37, "from": 751600,  "to": null }
+      ],
+      "mfs": [
+        { "rate": 0.10, "from": 0,       "to": 11925 },
+        { "rate": 0.12, "from": 11925,   "to": 48475 },
+        { "rate": 0.22, "from": 48475,   "to": 103350 },
+        { "rate": 0.24, "from": 103350,  "to": 197300 },
+        { "rate": 0.32, "from": 197300,  "to": 250525 },
+        { "rate": 0.35, "from": 250525,  "to": 375800 },
+        { "rate": 0.37, "from": 375800,  "to": null }
+      ],
+      "hoh": [
+        { "rate": 0.10, "from": 0,       "to": 17000 },
+        { "rate": 0.12, "from": 17000,   "to": 64850 },
+        { "rate": 0.22, "from": 64850,   "to": 103350 },
+        { "rate": 0.24, "from": 103350,  "to": 197300 },
+        { "rate": 0.32, "from": 197300,  "to": 250500 },
+        { "rate": 0.35, "from": 250500,  "to": 626350 },
+        { "rate": 0.37, "from": 626350,  "to": null }
+      ]
+    },
+    "standard_deduction": {
+      "single": 15000,
+      "mfj": 30000,
+      "mfs": 15000,
+      "hoh": 22500,
+      "additional_age_or_blind_single": 2000,
+      "additional_age_or_blind_mfj": 1600,
+      "_note_obbba_senior_bonus": "OBBBA adds a temporary $6,000 senior bonus deduction (age 65+) for tax years 2025-2028; phases out above $75,000 single / $150,000 MFJ AGI"
+    },
+    "capital_gains_brackets": {
+      "single": [
+        { "rate": 0.00, "from": 0,       "to": 48350 },
+        { "rate": 0.15, "from": 48350,   "to": 533400 },
+        { "rate": 0.20, "from": 533400,  "to": null }
+      ],
+      "mfj": [
+        { "rate": 0.00, "from": 0,       "to": 96700 },
+        { "rate": 0.15, "from": 96700,   "to": 600050 },
+        { "rate": 0.20, "from": 600050,  "to": null }
+      ],
+      "mfs": [
+        { "rate": 0.00, "from": 0,       "to": 48350 },
+        { "rate": 0.15, "from": 48350,   "to": 300000 },
+        { "rate": 0.20, "from": 300000,  "to": null }
+      ],
+      "hoh": [
+        { "rate": 0.00, "from": 0,       "to": 64750 },
+        { "rate": 0.15, "from": 64750,   "to": 566700 },
+        { "rate": 0.20, "from": 566700,  "to": null }
+      ],
+      "section_1250_unrecaptured_rate": 0.25,
+      "section_1202_qsbs_collectibles_rate": 0.28
+    },
+    "niit": {
+      "rate": 0.038,
+      "threshold_single": 200000,
+      "threshold_mfj": 250000,
+      "threshold_mfs": 125000,
+      "threshold_hoh": 200000
+    },
+    "amt_exemption": {
+      "single": 88100,
+      "mfj": 137000,
+      "mfs": 68500,
+      "phaseout_start_single": 626350,
+      "phaseout_start_mfj": 1252700,
+      "rate_below_threshold": 0.26,
+      "rate_above_threshold": 0.28,
+      "threshold_28_pct_bracket_single": 239100,
+      "threshold_28_pct_bracket_mfs": 119550
+    },
+    "qbi_deduction_rate": 0.20,
+    "qbi_threshold": {
+      "single": 197300,
+      "mfj": 394600,
+      "phaseout_range_single": 50000,
+      "phaseout_range_mfj": 100000,
+      "_note_obbba": "OBBBA made §199A permanent; rate stays 20% for 2025, rises to 23% in 2026"
+    },
+    "salt_cap": 40000,
+    "_note_salt": "OBBBA raised SALT cap from $10,000 to $40,000 for tax years 2025-2029; phases down above $500,000 MAGI",
+    "personal_exemption": 0,
+    "section_179_expense_limit": 1250000,
+    "section_179_phaseout_start": 3130000,
+    "section_168k_bonus_depreciation": {
+      "rate_property_placed_in_service_before_jan_19_2025": 0.40,
+      "rate_property_placed_in_service_on_or_after_jan_19_2025": 1.00,
+      "_note_obbba": "OBBBA restored 100% bonus depreciation permanently for property placed in service on or after Jan 19, 2025"
+    },
+    "section_174_rd": {
+      "domestic_amortization_required": false,
+      "foreign_amortization_years": 15,
+      "_note_obbba": "OBBBA repealed §174 domestic R&D capitalization retroactively to 2022; foreign R&D still capitalized over 15 years. AUDIT FLASH POINT for transition treatment.",
+      "small_business_retroactive_election_threshold": 31000000
+    },
+    "kiddie_tax_unearned_income_threshold": 2700
+  },
+  "rates_corporate": {
+    "c_corp_rate": 0.21,
+    "camt_rate": 0.15,
+    "camt_threshold_afsi_3yr_avg": 1000000000,
+    "beat_rate": 0.10,
+    "beat_rate_2026": 0.125,
+    "section_250_gilti_deduction": 0.50,
+    "section_250_fdii_deduction": 0.375,
+    "section_163j_ati_limit": 0.30,
+    "section_163j_ebitda_addback": true,
+    "_note_obbba_163j": "OBBBA restored EBITDA-based ATI permanently (depreciation & amortization added back)",
+    "accumulated_earnings_tax_rate": 0.20,
+    "personal_holding_company_rate": 0.20
+  },
+  "payroll_and_se": {
+    "social_security_wage_base": 176100,
+    "social_security_rate_employee": 0.062,
+    "social_security_rate_employer": 0.062,
+    "medicare_rate": 0.0145,
+    "additional_medicare_rate": 0.009,
+    "additional_medicare_threshold_single": 200000,
+    "additional_medicare_threshold_mfj": 250000,
+    "additional_medicare_threshold_mfs": 125000,
+    "se_tax_oasdi": 0.124,
+    "se_tax_medicare": 0.029,
+    "se_combined_rate_below_wage_base": 0.153,
+    "se_net_earnings_adjustment": 0.9235,
+    "se_minimum_net_earnings_to_file": 400,
+    "se_optional_method_nonfarm_max": 7493,
+    "futa_wage_base": 7000,
+    "futa_full_rate": 0.06,
+    "futa_credit_max": 0.054,
+    "futa_net_rate_credit_states": 0.006,
+    "household_employee_withholding_threshold": 2800,
+    "nanny_tax_threshold": 2800
+  },
+  "retirement_2025": {
+    "401k_employee_deferral": 23500,
+    "401k_catch_up_50": 7500,
+    "401k_super_catch_up_60_to_63": 11250,
+    "401k_total_415c_limit": 70000,
+    "401k_compensation_cap_401a17": 350000,
+    "ira_contribution": 7000,
+    "ira_catch_up_50": 1000,
+    "ira_deduction_phaseout_single_active": [79000, 89000],
+    "ira_deduction_phaseout_mfj_active": [126000, 146000],
+    "ira_deduction_phaseout_mfj_spouse_active": [236000, 246000],
+    "roth_ira_phaseout_single": [150000, 165000],
+    "roth_ira_phaseout_mfj": [236000, 246000],
+    "sep_ira_max": 70000,
+    "sep_ira_compensation_cap": 350000,
+    "sep_ira_minimum_compensation_eligibility": 750,
+    "solo_401k_max": 70000,
+    "solo_401k_max_with_catch_up_50": 77500,
+    "solo_401k_max_with_super_catch_up_60_63": 81250,
+    "simple_ira_employee": 16500,
+    "simple_ira_catch_up_50": 3500,
+    "simple_ira_super_catch_up_60_63": 5250,
+    "simple_ira_enhanced_employee_under_secure2_0": 17600,
+    "defined_benefit_415b_annual_limit": 280000,
+    "hce_threshold": 160000,
+    "key_employee_top_heavy_threshold": 230000,
+    "hsa_self": 4300,
+    "hsa_family": 8550,
+    "hsa_catch_up_55": 1000,
+    "hdhp_min_deductible_self": 1650,
+    "hdhp_min_deductible_family": 3300,
+    "hdhp_max_oop_self": 8300,
+    "hdhp_max_oop_family": 16600,
+    "fsa_health_contribution_limit": 3300,
+    "fsa_health_carryover": 660,
+    "dependent_care_fsa_limit": 5000,
+    "qualified_transportation_monthly": 325,
+    "saver_credit_max_agi_single": 39500,
+    "saver_credit_max_agi_mfj": 79000,
+    "rmd_age": 73,
+    "_note_rmd_age_75": "Under SECURE 2.0, RMD age rises to 75 in 2033"
+  },
+  "international": {
+    "feie_cap": 130000,
+    "housing_exclusion_base": 21600,
+    "housing_exclusion_cap": 39000,
+    "physical_presence_days": 330,
+    "foreign_tax_credit_limitation_categories": ["passive", "general", "GILTI", "foreign_branch", "treaty_resourced", "section_901j", "lump_sum_distributions"],
+    "section_911_self_employment_no_exclusion_se_tax": true
+  },
+  "transfer_taxes": {
+    "annual_gift_exclusion": 19000,
+    "annual_gift_exclusion_nc_spouse": 190000,
+    "estate_basic_exclusion": 13990000,
+    "estate_top_rate": 0.40,
+    "gst_exemption": 13990000,
+    "gst_rate": 0.40,
+    "special_use_valuation_2032a_cap": 1420000,
+    "_note_obbba_estate": "OBBBA made the doubled TCJA estate/gift exemption permanent; the previously scheduled 2026 sunset to ~$7M no longer applies"
+  },
+  "reporting_thresholds": {
+    "form_1099_k_threshold": 5000,
+    "_note_1099k": "ARPA threshold of $600 still suspended; IRS phased transition has 2025 at $2,500 per Notice 2024-85; OBBBA permanently restored $20,000 / 200-transaction threshold but transition rules differ — verify with current IRS guidance",
+    "form_1099_k_threshold_obbba_post_transition": 20000,
+    "form_1099_nec_threshold": 600,
+    "form_1099_misc_threshold": 600,
+    "form_1099_int_threshold": 10,
+    "fbar_threshold": 10000,
+    "form_8938_threshold_resident_single_year_end": 50000,
+    "form_8938_threshold_resident_single_any_time": 75000,
+    "form_8938_threshold_resident_mfj_year_end": 100000,
+    "form_8938_threshold_resident_mfj_any_time": 150000,
+    "form_8938_threshold_abroad_single_year_end": 200000,
+    "form_8938_threshold_abroad_single_any_time": 300000,
+    "form_8938_threshold_abroad_mfj_year_end": 400000,
+    "form_8938_threshold_abroad_mfj_any_time": 600000,
+    "fincen_boi_compliance": "STAYED for domestic reporting companies — Treasury interim final rule March 21 2025 limited reporting to foreign reporting companies only; domestic entities currently NOT required to file. AUDIT FLASH POINT — monitor litigation."
+  },
+  "credits": {
+    "ctc_per_child": 2200,
+    "_note_ctc_obbba": "OBBBA raised CTC from $2,000 to $2,200 starting 2025; indexed thereafter",
+    "ctc_refundable_per_child": 1700,
+    "ctc_phaseout_start_single": 200000,
+    "ctc_phaseout_start_mfj": 400000,
+    "credit_other_dependents": 500,
+    "eitc_max_no_kids": 649,
+    "eitc_max_1_kid": 4328,
+    "eitc_max_2_kids": 7152,
+    "eitc_max_3_kids": 8046,
+    "eitc_investment_income_limit": 11950,
+    "aotc_max": 2500,
+    "aotc_refundable_portion": 1000,
+    "aotc_phaseout_single": [80000, 90000],
+    "aotc_phaseout_mfj": [160000, 180000],
+    "llc_max": 2000,
+    "llc_phaseout_single": [80000, 90000],
+    "llc_phaseout_mfj": [160000, 180000],
+    "adoption_credit_max": 17280,
+    "adoption_credit_phaseout_start": 259190,
+    "premium_tax_credit_fpl_pct_caps_present": true,
+    "_note_ptc_obbba": "OBBBA did not extend the ARPA-enhanced PTC subsidies past 2025; reverts to pre-ARPA cliff in 2026 unless further legislation"
+  },
+  "mileage": {
+    "business": 0.70,
+    "medical_or_moving": 0.21,
+    "charitable": 0.14,
+    "_note_moving": "Moving deduction only available for active-duty military under TCJA (made permanent by OBBBA)"
+  },
+  "vehicle_depreciation_caps_280f": {
+    "year_1_with_bonus": 20400,
+    "year_1_no_bonus": 12400,
+    "year_2": 19800,
+    "year_3": 11900,
+    "year_4_and_later": 7160,
+    "luxury_auto_threshold": 70000
+  },
+  "interest_rates_underpayment": {
+    "q1_2025_individual": 0.08,
+    "q2_2025_individual": 0.08,
+    "q3_2025_individual": 0.08,
+    "q4_2025_individual": 0.08,
+    "corporate_overpayment_q4_2025": 0.07,
+    "large_corp_underpayment_q4_2025": 0.10,
+    "note": "Verify quarterly — IRS announces ~45 days before quarter via Rev. Rul."
+  },
+  "trusts_and_estates": {
+    "ordinary_brackets": [
+      { "rate": 0.10, "from": 0,     "to": 3150 },
+      { "rate": 0.24, "from": 3150,  "to": 11450 },
+      { "rate": 0.35, "from": 11450, "to": 15650 },
+      { "rate": 0.37, "from": 15650, "to": null }
+    ],
+    "capital_gains_0_pct_max": 3250,
+    "capital_gains_15_pct_max": 15900,
+    "amt_exemption": 30700,
+    "amt_phaseout_start": 102450
+  },
+  "filing_deadlines_2025_returns_filed_2026": {
+    "form_1040_due": "2026-04-15",
+    "form_1040_extension_due": "2026-10-15",
+    "form_1065_due": "2026-03-16",
+    "form_1120s_due": "2026-03-16",
+    "form_1120_due": "2026-04-15",
+    "form_1041_due": "2026-04-15",
+    "fbar_due": "2026-04-15",
+    "fbar_automatic_extension": "2026-10-15",
+    "form_1099_nec_recipient_and_irs": "2026-01-31",
+    "form_w2_recipient_and_ssa": "2026-01-31",
+    "estimated_tax_2026_q1": "2026-04-15",
+    "estimated_tax_2026_q2": "2026-06-15",
+    "estimated_tax_2026_q3": "2026-09-15",
+    "estimated_tax_2026_q4": "2027-01-15"
+  },
+  "estimated_tax_safe_harbor": {
+    "current_year_pct": 0.90,
+    "prior_year_pct_agi_le_150k": 1.00,
+    "prior_year_pct_agi_gt_150k": 1.10,
+    "minimum_balance_due_no_penalty": 1000
+  }
+}

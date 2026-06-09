@@ -1,0 +1,181 @@
+{
+  "jurisdiction_code": "LK",
+  "jurisdiction_label": "Sri Lanka",
+  "tax_year": "2025-26",
+  "skills": [
+    {
+      "tab": "Income Tax (Individuals)",
+      "slug": "sri-lanka-income-tax",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Rates & personal relief (YA 2025/26, eff. 1 Apr 2025)",
+          "rows": [
+            {"item": "Personal relief (tax-free)", "value": "LKR 1,800,000 per year (LKR 150,000/month) — raised from 1,200,000", "ref": "IRD PN/IT/2025-01; tax chart 2025/26"},
+            {"item": "First 1,000,000", "value": "6%", "ref": "IRA No. 24 of 2017 First Schedule (Act 02 of 2025)"},
+            {"item": "Next 500,000 (1,000,001–1,500,000)", "value": "18%", "ref": "IRA First Schedule"},
+            {"item": "Next 500,000 (1,500,001–2,000,000)", "value": "24%", "ref": "IRA First Schedule"},
+            {"item": "Next 500,000 (2,000,001–2,500,000)", "value": "30%", "ref": "IRA First Schedule"},
+            {"item": "Balance above 2,500,000", "value": "36%", "ref": "IRA First Schedule"},
+            {"item": "Relief exclusions", "value": "No relief on investment-asset gains; non-resident non-citizens get no relief", "ref": "IRD PN/IT/2025-01; IRA s.52"}
+          ]
+        },
+        {
+          "section": "APIT (PAYE) Table 01 — monthly regular employment (relief 150,000/mo built in)",
+          "rows": [
+            {"item": "Up to 150,000/month", "value": "Nil (relief)", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "150,001 – 233,333", "value": "6% − 9,000", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "233,334 – 275,000", "value": "18% − 37,000", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "275,001 – 316,667", "value": "24% − 53,500", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "316,668 – 358,333", "value": "30% − 72,500", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "Over 358,333", "value": "36% − 94,000", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "Cumulative > 1,800,000 (low monthly income)", "value": "Apply Table No. 05", "ref": "IRD APIT 2025/26 Table 01"}
+          ]
+        },
+        {
+          "section": "APIT Table 08 — resident remote workers for foreign employer (forex)",
+          "rows": [
+            {"item": "Up to 1,800,000 cumulative", "value": "Nil (relief)", "ref": "IRD APIT 2025/26 Table 08"},
+            {"item": "1,800,001 – 2,800,000", "value": "6% − 108,000", "ref": "IRD APIT 2025/26 Table 08"},
+            {"item": "Over 2,800,000", "value": "15% − 360,000 (concessionary top rate)", "ref": "IRD APIT 2025/26 Table 08"}
+          ]
+        },
+        {
+          "section": "Statute & filing",
+          "rows": [
+            {"item": "Governing statute", "value": "Inland Revenue Act No. 24 of 2017, as amended by Act No. 02 of 2025 (eff. 1 Apr 2025)", "ref": "Consolidated IRA"},
+            {"item": "Year of assessment", "value": "1 April – 31 March", "ref": "IRA"},
+            {"item": "Statement of Estimated Tax (SET)", "value": "Filed under s.91; YA 2025/26 due 15 August 2025", "ref": "IRD SET 2025/26 form"},
+            {"item": "Residency day-count test", "value": "VERIFY under IRA s.69 — not asserted by the skill", "ref": "IRA s.69 (verify)"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Corporate Income Tax",
+      "slug": "sri-lanka-corporate-tax",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Rates (YA 2025/26)",
+          "rows": [
+            {"item": "Standard rate", "value": "30% (since 1 April 2023; was 24% from 1 Jan 2020)", "ref": "IRD tax chart 2025/26; consolidated IRA"},
+            {"item": "Concessionary rate", "value": "15% on qualifying foreign-currency income/services remitted to Sri Lanka through a bank", "ref": "IRD tax chart 2025/26"},
+            {"item": "Betting & gaming; liquor/tobacco (mfg/sale or import/sale)", "value": "45% flat (raised from 40% eff. 1 Apr 2025)", "ref": "IRD PN/IT/2025-01; consolidated IRA"},
+            {"item": "Export of liquor/tobacco products", "value": "30% (normal rate, not 45%)", "ref": "Consolidated IRA"},
+            {"item": "Individuals with betting/gaming or liquor/tobacco business income", "value": "45% flat", "ref": "IRD PN/IT/2025-01"},
+            {"item": "Capital gains on investment assets", "value": "10%", "ref": "IRD tax chart 2025/26"}
+          ]
+        },
+        {
+          "section": "Statute & filing",
+          "rows": [
+            {"item": "Governing statute", "value": "Inland Revenue Act No. 24 of 2017, as amended by Act No. 02 of 2025", "ref": "Consolidated IRA"},
+            {"item": "Year of assessment", "value": "1 April – 31 March", "ref": "IRA"},
+            {"item": "Statement of Estimated Tax (SET)", "value": "Under s.91; YA 2025/26 due 15 August 2025", "ref": "IRD SET 2025/26 form"},
+            {"item": "SME / sector concessionary rates", "value": "Not asserted — VERIFY against current IRA/IRD", "ref": "(verify)"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Withholding Tax (AIT)",
+      "slug": "sri-lanka-withholding-tax",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "WHT / AIT rates (effective 1 Apr 2025)",
+          "rows": [
+            {"item": "Interest or discount", "value": "10% (raised from 5%)", "ref": "IRD tax chart 2025/26; SEC/2025/E/02 & E/03"},
+            {"item": "Dividends", "value": "15%", "ref": "IRD tax chart 2025/26"},
+            {"item": "Resident rent (> LKR 100,000/month)", "value": "10%", "ref": "IRD tax chart 2025/26"},
+            {"item": "Resident service fees (independent prof., aggregate > 100,000/month)", "value": "5%", "ref": "IRD tax chart 2025/26"},
+            {"item": "Royalties", "value": "14%", "ref": "IRD tax chart 2025/26"},
+            {"item": "Non-resident rent / service fees / insurance premiums", "value": "14%", "ref": "IRD tax chart 2025/26"},
+            {"item": "Resident individual interest relief", "value": "May self-declare for relief where assessable income ≤ LKR 1,800,000", "ref": "IRD PN/IT/2025-01"}
+          ]
+        },
+        {
+          "section": "Mechanics",
+          "rows": [
+            {"item": "Mechanism", "value": "AIT deducted at source by the payer; generally creditable against recipient's income tax", "ref": "Consolidated IRA"},
+            {"item": "Treaty relief (non-residents)", "value": "Requires tax-residence certificate; else apply statutory rate", "ref": "IRA; DTA"},
+            {"item": "Creditable vs final per stream", "value": "VERIFY per stream", "ref": "(verify)"},
+            {"item": "Remittance / statement due dates", "value": "VERIFY against current IRD schedule", "ref": "(verify)"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "SSCL (Social Security Levy)",
+      "slug": "sri-lanka-sscl",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "Rate, base & status",
+          "rows": [
+            {"item": "Rate", "value": "2.5% on liable turnover", "ref": "IRD tax chart 2025/26; IRD SSCL page"},
+            {"item": "Liable turnover", "value": "Activity-dependent fraction (25%–100%) of gross turnover — NOT gross turnover", "ref": "IRD SSCL page"},
+            {"item": "Status", "value": "In force; most recently amended by SSCL Amendment Act No. 24 of 2025", "ref": "IRD SSCL page; KPMG"},
+            {"item": "Principal statute", "value": "Social Security Contribution Levy Act (2022), as amended — VERIFY exact Act number/year", "ref": "(verify)"},
+            {"item": "Per-activity liable-turnover fraction", "value": "VERIFY against current SSCL schedule — not asserted", "ref": "(verify)"},
+            {"item": "Registration threshold", "value": "VERIFY current quarterly LKR threshold — not asserted", "ref": "(verify)"},
+            {"item": "Filing frequency & due dates", "value": "VERIFY against IRD SSCL guidance", "ref": "(verify)"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Payroll (APIT + EPF/ETF)",
+      "slug": "sri-lanka-payroll",
+      "version": "1.0",
+      "sections": [
+        {
+          "section": "EPF & ETF contributions",
+          "rows": [
+            {"item": "EPF — employee", "value": "8% of total monthly earnings (deducted from salary)", "ref": "epf.lk; CBSL EPF"},
+            {"item": "EPF — employer", "value": "12% of total monthly earnings", "ref": "epf.lk; CBSL EPF"},
+            {"item": "EPF — combined", "value": "20%", "ref": "epf.lk"},
+            {"item": "ETF — employer", "value": "3% of total monthly earnings (employer-only; NOT deducted from employee)", "ref": "etfb.lk"},
+            {"item": "EPF/ETF-liable earnings composition", "value": "Which allowances are liable — VERIFY under EPF/ETF Acts", "ref": "(verify)"}
+          ]
+        },
+        {
+          "section": "APIT (PAYE) — see Income Tax skill",
+          "rows": [
+            {"item": "Personal relief in APIT", "value": "LKR 150,000/month (1,800,000/year) built into Table 01", "ref": "IRD APIT 2025/26"},
+            {"item": "APIT bands", "value": "Per APIT Table 01 (top marginal 36% over 358,333/month)", "ref": "IRD APIT 2025/26 Table 01"},
+            {"item": "Remittance due dates (APIT/EPF/ETF)", "value": "VERIFY against current IRD/EPF/ETFB schedules", "ref": "(verify)"}
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "VAT (IRD Return)",
+      "slug": "sri-lanka-vat",
+      "version": "2.1",
+      "sections": [
+        {
+          "section": "Rates & registration",
+          "rows": [
+            {"item": "Standard rate", "value": "18% (effective 1 January 2024; previously 15%)", "ref": "VAT Act No. 14 of 2002; IRD tax chart 2025/26"},
+            {"item": "Zero rate", "value": "0% — exports and specified essential goods", "ref": "VAT Act No. 14 of 2002"},
+            {"item": "Exempt supplies", "value": "Financial services, healthcare, education, residential rent, unprocessed agriculture", "ref": "VAT Act No. 14 of 2002"},
+            {"item": "Registration threshold", "value": "LKR 80,000,000 per annum (or LKR 20,000,000 per quarter) — VERIFY current figure", "ref": "VAT Act (verify)"}
+          ]
+        },
+        {
+          "section": "Filing & classification",
+          "rows": [
+            {"item": "Filing frequency", "value": "Monthly", "ref": "IRD"},
+            {"item": "Deadline", "value": "Last business day of the month following the tax period", "ref": "IRD"},
+            {"item": "Imports", "value": "VAT at 18% on CIF plus duty", "ref": "VAT Act No. 14 of 2002"},
+            {"item": "Reverse charge — non-resident services", "value": "Self-assess 18%", "ref": "VAT Act No. 14 of 2002"},
+            {"item": "Input tax credit", "value": "Valid tax invoice with TIN; business purpose; apportionment if mixed", "ref": "VAT Act No. 14 of 2002"},
+            {"item": "Blocked input", "value": "Personal consumption, entertainment, passenger vehicles", "ref": "VAT Act No. 14 of 2002"}
+          ]
+        }
+      ]
+    }
+  ]
+}
