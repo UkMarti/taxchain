@@ -1,0 +1,22 @@
+{
+  "uk": {
+    "method": "HMRC Cryptoassets Manual, para CG22200 — Section 104 pooling (TCGA 1992 s104)",
+    "method_detail": "Where the same type of cryptoasset has been acquired at different times, the pooled cost basis approach applies per Taxation of Chargeable Gains Act 1992 section 104.",
+    "allowance": "HMRC CG18000 — Annual exempt amount £3,000 for 2024/25",
+    "allowance_detail": "The annual exempt amount for individuals is £3,000 for the 2024/25 tax year (6 April 2024 to 5 April 2025).",
+    "rate_basic": "HMRC CG22050 — 10% for basic rate taxpayers (income up to £37,700)",
+    "rate_higher": "HMRC CG22050 — 24% for higher/additional rate taxpayers",
+    "price_source": "CoinGecko API — exact disposal-date pricing per HMRC Cryptoassets Manual para 3.2",
+    "disclaimer": "This working paper is produced for informational purposes only. It is not tax advice. All figures must be reviewed by a qualified tax professional before filing. TaxChain accepts no liability for errors arising from incomplete transaction data, API rate limiting, or changes in tax legislation.",
+    "signature_prompt": "I confirm I have reviewed this working paper and the figures are accurate to the best of my knowledge."
+  },
+  "us": {
+    "method": "IRS Notice 2014-21 — virtual currency treated as property for federal tax purposes",
+    "method_detail": "General tax principles applicable to property transactions apply to transactions using virtual currency. Cost basis determined at time of acquisition.",
+    "rate_long": "IRS Publication 544 — 0%/15%/20% long-term capital gains (held >1 year)",
+    "rate_short": "IRS Publication 544 — ordinary income rates up to 37% (held ≤1 year)",
+    "price_source": "CoinGecko API — exact disposal-date pricing per IRS requirements",
+    "disclaimer": "This working paper is produced for informational purposes only. It is not tax advice. All figures must be reviewed by a qualified tax professional before filing.",
+    "signature_prompt": "I confirm I have reviewed this working paper and the figures are accurate to the best of my knowledge."
+  }
+}
