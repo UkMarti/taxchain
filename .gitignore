@@ -1,5 +1,8 @@
-node_modules/
+﻿node_modules/
+taxchain-server/target/
+engine/target/
+engine/pkg/
+*.db
 .env
-*.env
-.env.*
-webhooks.json
+openaccountants-main/
+worker/.wrangler/
