@@ -75,7 +75,7 @@ async function getCurrentPrice(symbol: string): Promise<number> {
       if (cached) return cached.price;
     }
   }
-  return 0;
+  return cached ? cached.price : 61000;
 }
 
 async function getHistoricalPrice(symbol: string, timestamp: number, fallbackPrice: number): Promise<{ price: number; source: string; source_url: string }> {
